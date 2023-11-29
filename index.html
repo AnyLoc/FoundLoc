@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel = "icon" href = "assets/title_image.png" type = "image/x-icon">
+        
+  <meta charset="utf-8">
+  <meta name="description"
+        content="FoundLoc: Vision-based Onboard Aerial Localization in the Wild">
+  <meta name="keywords" content="FoundLoc,FoundVLAD, Foundation Models, Visual Place Recognition, VPR, DINOv2, DINO, Visual Odometry, Visual Inertial Odometry, VO, VIO">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:image" content="assets/Thumbnail.png" />        
+  <title>FoundLoc: Vision-based Onboard Aerial Localization in the Wild</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://anyloc.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">FoundLoc: Vision-based Onboard Aerial <br> Localization in the Wild </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://shockwaveHe.github.io/">Yao He*</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.ivancisneros.com/">Ivan Cisneros*</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://nik-v9.github.io/">Nikhil Keetha</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.jaypatrikar.me/">Jay Patrikar</a><sup>1</sup>,</span> 
+                <br>
+              <span class="author-block">
+              <a href="https://www.linkedin.com/in/zelinye">Zelin Ye</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/ian-higgins-53957718a">Ian Higgins</a><sup>1</sup>,</span>  
+              <span class="author-block">
+              <a href="http://www.huyaoyu.com/">Yaoyu Hu</a><sup>1</sup></span>
+              <span class="author-block">
+                <a href="https://parvkpr.github.io/">Parv Kapoor</a><sup>1</sup></span>
+                <span class="author-block">
+                  <a href="https://theairlab.org/">Sebastian Scherer</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>Carnegie Mello University</a>
+          </div>
+
+          <div class="is-size-7 publication-authors">
+            <span class="author-block">* denotes equal contribution</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="assets/FoundLoc_draft.pdf"
+                   class="external-link button is-normal ">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2310.16299"
+                   class="external-link button is-normal ">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=ITo8rMInatk&feature=youtu.be"
+                   class="external-link button is-normal ">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/AnyLoc/AnyLoc"
+                   class="external-link button is-normal ">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+              <!-- Dataset link. -->
+              <!-- <span class="link-block">
+                <a href="#interactive_demo"
+                   class="external-link button is-normal">
+                  <span class="icon">
+                      <i class="fa fa-basketball-ball"></i>
+                  </span>
+                  <span>Nardo-Air Dataset</span>
+                  </a>
+              </span> -->
+              <!-- Hugging Face Demo Link. -->
+              <!-- <span class="link-block">
+                <a href="https://huggingface.co/spaces/TheProjectsGuy/AnyLoc"
+                   class="external-link button is-normal">
+                  <span class="icon">
+                      <i class="fa fa-face-smiling-hands"></i>
+                  </span>
+                  <span>HF Demo</span>
+                  </a>
+              </span> -->
+
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal" disabled="true">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div> -->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%"> -->
+        <!-- <img source src="./data/method_viz/Splash GIF.gif" /> -->
+        <video id="dinov2_gardens" autoplay controls muted loop playsinline height="100%">
+          <source src="./data/method_viz/method_overview.mp4"
+                  type="video/mp4">
+        </video>
+      <!-- </video> -->
+      <h2 class="subtitle has-text-centered">
+        <span class="coolname">FoundLoc</span> enables <span> Unmanned Aerial Vehicle <i>global localization</i> in the wild using only a <i>low-cost onboard vision-based system</i>
+        without relying on external GNSS signals</span>. 
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Robust and accurate localization for Unmanned Aerial Vehicles (UAVs) is an essential capability to achieve autonomous and long-range flights. 
+            Current methods rely heavily on GNSS, which is vulnerable to jamming, spoofing, and environmental interference.
+            In this paper, we develop a GNSS-denied localization approach for UAVs that harnesses both Visual-Inertial Odometry (VIO) and Visual Place Recognition (VPR) using a foundation model.
+            This paper presents a novel vision-based pipeline that works exclusively with a nadir-facing camera, an Inertial Measurement Unit (IMU), and pre-existing satellite imagery for robust and accurate localization in varied environments and conditions. 
+            Our system demonstrated average localization accuracy within a 20-meter range, with a minimum error below 1 meter, under real-world conditions marked by drastic changes in environmental appearance and with no assumption of the vehicle's initial pose. 
+            The method is proven to be effective and robust, addressing the crucial need for reliable UAV localization in GNSS-denied environments, while also being computationally efficient enough to be deployed on resource-constrained platforms.
+          </p>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <a id="overview_video"></a>
+          <iframe
+            src="./data/">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div> -->
+    <!--/ Paper video. -->
+</section>
+
+<section class="hero is-light">
+  <div class="hero-body">
+  <!-- Paper video. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-three-fifths">
+      <h2 class="title is-3">Demo: FoundLoc on Nardo-Air</h2>
+      <div class="publication-video">
+        <video id="nardo-air" autoplay controls muted loop playsinline height="100%">
+          <source src="./data/trajectory_videos/Nardo-air.mp4"
+                  type="video/mp4">
+        </video> 
+       </div>
+  </div>
+  </div>
+
+  <section class="hero is-light">
+    <div class="hero-body">
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-three-fifths">
+        <h2 class="title is-3">Demo: FoundLoc on large-scale ALTO</h2>
+        <div class="publication-video">
+          <video id="Alto" autoplay controls muted loop playsinline height="100%">
+            <source src="./data/trajectory_videos/Alto.mp4"
+                    type="video/mp4">
+          </video>
+         </div>
+    </div>
+    </div>
+  <!--Paper video-->
+
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+
+        <video id="dinov2_gardens" autoplay controls muted loop playsinline height="100%">
+          <source src="./data/trajectory_videos/Nardo-air.mp4"
+                  type="video/mp4">
+        </video>
+        <video id="Alto" autoplay controls muted loop playsinline height="100%">
+          <source src="./data/trajectory_videos/Alto.mp4"
+                  type="video/mp4">
+        </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="coolname">FoundLoc</span> running on our collected Nardo-Air Dataset. 
+      </h2>
+    </div>
+  </div>
+</section> -->
+<!-- 
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+        <video id="Alto" autoplay controls muted loop playsinline height="100%">
+          <source src="./data/trajectory_videos/Alto.mp4"
+                  type="video/mp4">
+        </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="coolname">FoundLoc</span> on large scale dataset ALTO. 
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">BibTeX</h2>
+    <pre><code>
+      @article{keetha2023anyloc,
+        title={FoundLoc: Vision-based Onboard Aerial Localization in the Wild},
+        author={Yao He and Ivan Cisneros and Nikhil Keetha and Jay Patrikar and Zelin Ye and Ian Higgins and Yaoyu Hu and Parv Kapoor and Sebastian Scherer},
+        journal={arXiv preprint arXiv:2310.16299},
+        year={2023}
+      }
+    </code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website adapted from the Nerfies templates, which is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            If you use the <a href="https://github.com/AnyLoc/AnyLoc.github.io">source code</a> of this website,
+            please also link back to the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies source code</a> in your footer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
